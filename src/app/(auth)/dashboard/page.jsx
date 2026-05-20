@@ -4,7 +4,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { Button, Card } from "@heroui/react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import toast from "react-hot-toast";
 import {
   FiBook,
@@ -19,7 +19,7 @@ import {
 const EMPTY_BORROW = [];
 const EMPTY_READING = [];
 
-export default function DashboardPage() {
+function DashboardContent() {
   const { session, isPending, signOut, isSigningOut } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -193,5 +193,13 @@ export default function DashboardPage() {
         ) : null}
       </section>
     </main>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense>
+      <DashboardContent />
+    </Suspense>
   );
 }

@@ -83,16 +83,10 @@ export default function Hero() {
                 </p>
 
                 <div>
-                  <h1
-                    className="text-[3rem] font-bold leading-tight text-[#1a1510] sm:text-[3.4rem]"
-                    style={{ fontFamily: "var(--font-heading), serif" }}
-                  >
+                  <h1 className="font-heading text-[3rem] font-bold leading-tight text-[#1a1510] sm:text-[3.4rem]">
                     Read Smarter.
                   </h1>
-                  <h1
-                    className="text-[3rem] font-bold italic leading-tight text-[#314f36] sm:text-[3.4rem]"
-                    style={{ fontFamily: "var(--font-heading), serif" }}
-                  >
+                  <h1 className="font-heading text-[3rem] font-bold italic leading-tight text-[#314f36] sm:text-[3.4rem]">
                     Borrow Better.
                   </h1>
                 </div>

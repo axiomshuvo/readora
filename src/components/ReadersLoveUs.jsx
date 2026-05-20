@@ -29,10 +29,7 @@ const testimonials = [
 export default function ReadersLoveUs() {
   return (
     <section>
-      <h2
-        className="text-2xl font-semibold text-[#1f1a14]"
-        style={{ fontFamily: "var(--font-heading), serif" }}
-      >
+      <h2 className="font-heading text-2xl font-semibold text-[#1f1a14]">
         Readers Love Us
       </h2>
       <p className="mt-1 text-sm text-[#7a7069]">See what our community says</p>

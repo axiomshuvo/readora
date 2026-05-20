@@ -33,7 +33,7 @@ const navigationGroups = [
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "/#about" },
+      { label: "About Us", href: "/about" },
       { label: "Careers", href: "/#careers" },
       { label: "Press", href: "/#press" },
       { label: "Blog", href: "/#blog" },
@@ -88,12 +88,9 @@ export default function Footer() {
                     <FiBookOpen className="h-5 w-5" />
                   </span>
                   <div>
-                    <p
-                      className="text-[1.8rem] leading-none tracking-tight"
-                      style={{ fontFamily: "var(--font-heading), serif" }}
-                    >
+                    <h1 className="font-heading text-[1.8rem] leading-none tracking-tight">
                       Readora
-                    </p>
+                    </h1>
                   </div>
                 </div>
 
@@ -128,16 +125,16 @@ export default function Footer() {
                   key={group.title}
                   className="lg:border-r lg:border-[#eee4d6] lg:px-8"
                 >
-                  <p className="text-base font-semibold text-[#251f19]">
+                  <h2 className="text-base font-semibold text-[#251f19]">
                     {group.title}
-                  </p>
+                  </h2>
                   <ul className="mt-4 space-y-2.5">
                     {group.links.map((item) => (
                       <li key={item.label}>
                         <Link
                           href={item.href}
                           underline="none"
-                          className="text-sm text-[#6c6458] opacity-100 transition hover:text-[#1f1a14] hover:opacity-100"
+                          className="text-sm no-underline hover:underline text-[#6c6458] opacity-100 transition hover:text-[#1f1a14] hover:opacity-100"
                         >
                           {item.label}
                         </Link>

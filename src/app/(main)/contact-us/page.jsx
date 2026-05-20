@@ -31,10 +31,7 @@ export default function ContactUsPage() {
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#6f665c]">
           Contact Us
         </p>
-        <h3
-          className="mt-3 text-2xl leading-none text-[#1f1a14]"
-          style={{ fontFamily: "var(--font-heading), serif" }}
-        >
+        <h3 className="font-heading mt-3 text-2xl leading-none text-[#1f1a14]">
           Let&apos;s find your next favorite read.
         </h3>
         <p className="mt-3 text-sm leading-6 text-[#6d655b]">

@@ -74,10 +74,7 @@ export default function Challenge() {
               </div>
               {/* Number + label */}
               <div className="flex flex-col items-center pb-3 pt-1">
-                <span
-                  className="text-[2.9rem] leading-none text-[#3b3128]"
-                  style={{ fontFamily: "var(--font-heading), serif" }}
-                >
+                <span className="font-heading text-[2.9rem] leading-none text-[#3b3128]">
                   21
                 </span>
                 <span className="mt-0.5 text-[9px] font-bold uppercase tracking-[0.22em] text-[#6e6254]">
@@ -91,10 +88,7 @@ export default function Challenge() {
               CENTER COLUMN — heading, description, CTA
           ───────────────────────────────────────────── */}
           <div className="flex flex-1 flex-col justify-center gap-2.5 px-8 py-8">
-            <h2
-              className="text-[1.55rem] font-semibold leading-snug text-[#1f1a14]"
-              style={{ fontFamily: "var(--font-heading), serif" }}
-            >
+            <h2 className="font-heading text-[1.55rem] font-semibold leading-snug text-[#1f1a14]">
               Join the 21-Day Reading Challenge
             </h2>
             <p className="text-sm text-[#6c6459]">

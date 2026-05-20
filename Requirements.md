@@ -63,8 +63,8 @@ Suggested prompt for ChatGPT or Gemini:
 
 ### 3. Home Page
 
-- **Banner:** A large "Find Your Next Read" heading with a `Browse Now` button linking to the All Books page.
-- **Marquee:** A scrolling line of text such as `New Arrivals: [Book Name] | Special Discount on Memberships...`
+- **Banner:** A large "Find Your Next Read" heading with a `Browse Now` button linking to the All Books page. -
+- **Marquee:** A scrolling line of text such as `New Arrivals: [Book Name] | Special Discount on Memberships...` - done
 - **Featured Books:** Show the top 4 books fetched from the server or local JSON data. Each card must include a `View Details` button.
 - Add **two additional sections** based on your own ideas.
 

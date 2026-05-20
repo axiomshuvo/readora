@@ -27,10 +27,7 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section>
-      <h2
-        className="text-2xl font-semibold text-[#1f1a14]"
-        style={{ fontFamily: "var(--font-heading), serif" }}
-      >
+      <h2 className="font-heading text-2xl font-semibold text-[#1f1a14]">
         How It Works
       </h2>
       <p className="mt-1 text-sm text-[#7a7069]">It's simple and seamless</p>

@@ -3,33 +3,20 @@
 import { Button } from "@heroui/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import {
-  FiBookOpen,
-  FiBookmark,
-  FiMenu,
-  FiSearch,
-  FiUser,
-  FiX,
-} from "react-icons/fi";
+import { FiBookOpen, FiMenu, FiUser, FiX } from "react-icons/fi";
 
 const menuItems = [
   { label: "Home", href: "/" },
-  { label: "Collection", href: "/all-books" },
-  { label: "Categories", href: "/#categories" },
-  { label: "Membership", href: "/#membership" },
-  { label: "Community", href: "/#community" },
-  { label: "About", href: "/#about" },
+  { label: "All Books", href: "/all-books" },
+  { label: "Categories", href: "/categories" },
+  // { label: "Membership", href: "/#membership" },
+
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact-us" },
 ];
 
 function isActivePath(pathname, href) {
-  if (href === "/") {
-    return pathname === "/";
-  }
-
-  if (href.startsWith("/#")) {
-    return false;
-  }
-
+  if (href === "/") return pathname === "/";
   return pathname.startsWith(href);
 }
 
@@ -55,10 +42,7 @@ export default function Navbar() {
             <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#d8ccb8] bg-[#faf4e8] text-[#39573e] shadow-[0_10px_30px_rgba(57,87,62,0.08)]">
               <FiBookOpen className="h-5 w-5" />
             </span>
-            <span
-              className="text-[1.7rem] leading-none tracking-tight text-[#1f1a14]"
-              style={{ fontFamily: "var(--font-heading), serif" }}
-            >
+            <span className="font-heading text-[1.7rem] leading-none tracking-tight text-[#1f1a14]">
               Readora
             </span>
           </Button>
@@ -92,21 +76,11 @@ export default function Navbar() {
 
           <div className="ml-auto flex items-center gap-2">
             <Button
-              isIconOnly
-              variant="light"
-              aria-label="Search"
-              className="hidden h-11 w-11 rounded-full border border-black/8 bg-white text-[#2b2a26] shadow-sm transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-[#fcfaf6] sm:inline-flex"
+              variant="solid"
+              onPress={() => navigateTo("/all-books")}
+              className="hidden h-11 items-center gap-2 rounded-full border border-[#314f36] bg-transparent px-4 text-sm font-medium text-[#314f36] transition hover:-translate-y-0.5 hover:bg-[#314f36] hover:text-white sm:inline-flex"
             >
-              <FiSearch className="h-5 w-5" />
-            </Button>
-
-            <Button
-              isIconOnly
-              variant="light"
-              aria-label="Saved books"
-              className="hidden h-11 w-11 rounded-full border border-black/8 bg-white text-[#2b2a26] shadow-sm transition hover:-translate-y-0.5 hover:border-black/15 hover:bg-[#fcfaf6] sm:inline-flex"
-            >
-              <FiBookmark className="h-5 w-5" />
+              Browse Now
             </Button>
 
             <Button

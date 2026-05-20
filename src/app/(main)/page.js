@@ -20,7 +20,9 @@ export default function Home() {
           </div>
           <div className="flex flex-1 flex-col gap-3">
             <Card.Header className="gap-1">
-              <Card.Title className="pr-8">Become an ACME Creator!</Card.Title>
+              <Card.Title className="pr-8 font-heading">
+                Become an ACME Creator!
+              </Card.Title>
               <Card.Description>
                 Lorem ipsum dolor sit amet consectetur. Sed arcu donec id
                 aliquam dolor sed amet faucibus etiam.

@@ -1,9 +1,10 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Button } from "@heroui/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { FiBookOpen, FiMenu, FiUser, FiX } from "react-icons/fi";
+import { FiBookOpen, FiLogOut, FiMenu, FiUser, FiX } from "react-icons/fi";
 
 const menuItems = [
   { label: "Home", href: "/" },
@@ -29,6 +30,8 @@ export default function Navbar() {
     setIsOpen(false);
     router.push(href);
   };
+
+  const { data: session } = authClient.useSession();
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/5 bg-[linear-gradient(180deg,rgba(255,254,250,0.98),rgba(250,246,239,0.94))] backdrop-blur">
@@ -82,15 +85,48 @@ export default function Navbar() {
             >
               Browse Now
             </Button>
-
-            <Button
-              variant="solid"
-              onPress={() => navigateTo("/login")}
-              className="inline-flex h-11 items-center gap-2 rounded-full bg-[#314f36] px-4 text-sm font-medium text-white shadow-[0_12px_24px_rgba(49,79,54,0.22)] transition hover:-translate-y-0.5 hover:bg-[#27412b]"
-            >
-              <FiUser className="h-4 w-4" />
-              <span className="hidden sm:inline">Sign In</span>
-            </Button>
+            {session ? (
+              <>
+                <Button
+                  variant="light"
+                  onPress={() => navigateTo("/dashboard")}
+                  className="flex h-11 items-center gap-2.5 rounded-full border border-[#e0d8cc] bg-white pl-1.5 pr-4 text-sm font-medium text-[#1f1a14] shadow-sm transition hover:-translate-y-0.5 hover:border-[#314f36]"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#314f36] text-xs font-semibold text-white">
+                    {session.user.name?.charAt(0).toUpperCase()}
+                  </span>
+                  <span className="hidden max-w-30 truncate sm:inline">
+                    {session.user.name}
+                  </span>
+                </Button>
+                <Button
+                  isIconOnly
+                  variant="light"
+                  onPress={async () =>
+                    await authClient.signOut({
+                      fetchOptions: {
+                        onSuccess: () => {
+                          router.push("/"); // redirect to home after sign out
+                        },
+                      },
+                    })
+                  }
+                  aria-label="Sign out"
+                  className="h-11 w-11 rounded-full border border-[#e8ddcd] bg-white text-[#6c6459] shadow-sm transition hover:border-[#314f36] hover:text-[#314f36]"
+                >
+                  <FiLogOut className="h-4 w-4" />
+                </Button>
+              </>
+            ) : (
+              <Button
+                variant="solid"
+                onPress={() => navigateTo("/login")}
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-[#314f36] px-4 text-sm font-medium text-white shadow-[0_12px_24px_rgba(49,79,54,0.22)] transition hover:-translate-y-0.5 hover:bg-[#27412b]"
+              >
+                <FiUser className="h-4 w-4" />
+                <span className="hidden sm:inline">Sign In</span>
+              </Button>
+            )}
 
             <Button
               isIconOnly

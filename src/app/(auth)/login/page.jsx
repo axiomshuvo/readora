@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import {
   Button,
   Card,
@@ -11,21 +12,38 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { FiEye, FiEyeOff, FiLock, FiMail } from "react-icons/fi";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.currentTarget));
-    console.log("Form data:", data);
-    // auth logic goes here
-    setTimeout(() => setLoading(false), 1500);
+    const { data: res, error } = await authClient.signIn.email({
+      email: data.email,
+      password: data.password,
+      rememberMe: true,
+    });
+    setLoading(false);
+
+    if (error) {
+      toast.error(error.message ?? "Login failed. Please try again.");
+      return;
+    }
+    toast.success(
+      `Welcome back! ${res.user.name} You have successfully signed in.`,
+    );
+    console.log("Login successful:", res);
+
+    router.push("/dashboard");
   }
 
   return (

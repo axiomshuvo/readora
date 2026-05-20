@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import {
   Button,
   Card,
@@ -12,7 +13,9 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { FiEye, FiEyeOff, FiLock, FiMail, FiUser } from "react-icons/fi";
 
@@ -21,15 +24,31 @@ export default function RegisterPage() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     const data = Object.fromEntries(new FormData(e.currentTarget));
     if (data.password !== data.confirmPassword) return;
     setLoading(true);
-    console.log("Register data:", data);
-    // auth logic goes here
-    setTimeout(() => setLoading(false), 1500);
+    const { data: res, error } = await authClient.signUp.email({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    });
+
+    setTimeout(() => setLoading(false), 200);
+    if (error) {
+      toast.error(error.message ?? "Registration failed. Please try again.");
+      return;
+    }
+
+    toast.success(
+      `Welcome aboard, ${res.user.name}! Your account has been created.`,
+    );
+
+    router.push("/");
   }
 
   return (

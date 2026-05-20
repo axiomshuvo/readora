@@ -1,5 +1,6 @@
 "use client";
 
+import { useAuth } from "@/hooks/useAuth";
 import { authClient } from "@/lib/auth-client";
 import {
   Button,
@@ -7,7 +8,7 @@ import {
   FieldError,
   Fieldset,
   Form,
-  Input,
+  InputGroup,
   Label,
   TextField,
 } from "@heroui/react";
@@ -22,6 +23,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { signInWithGoogle } = useAuth();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -68,17 +70,12 @@ export default function LoginPage() {
                   {/* Email */}
                   <TextField name="email" type="email" isRequired>
                     <Label>Email</Label>
-                    <Input
-                      placeholder="you@example.com"
-                      variant="bordered"
-                      startContent={
-                        <FiMail className="h-4 w-4 shrink-0 text-[#a89e92]" />
-                      }
-                      classNames={{
-                        inputWrapper:
-                          "border-[#e0d8cc] hover:border-[#314f36] focus-within:!border-[#314f36]",
-                      }}
-                    />
+                    <InputGroup fullWidth>
+                      <InputGroup.Prefix className="border-r-0">
+                        <FiMail className="h-4 w-4" />
+                      </InputGroup.Prefix>
+                      <InputGroup.Input placeholder="you@example.com" />
+                    </InputGroup>
                     <FieldError />
                   </TextField>
 
@@ -89,13 +86,12 @@ export default function LoginPage() {
                     isRequired
                   >
                     <Label>Password</Label>
-                    <Input
-                      placeholder="Enter your password"
-                      variant="bordered"
-                      startContent={
-                        <FiLock className="h-4 w-4 shrink-0 text-[#a89e92]" />
-                      }
-                      endContent={
+                    <InputGroup fullWidth>
+                      <InputGroup.Prefix className="border-r-0">
+                        <FiLock className="h-4 w-4" />
+                      </InputGroup.Prefix>
+                      <InputGroup.Input placeholder="Enter your password" />
+                      <InputGroup.Suffix className="border-l-0">
                         <button
                           type="button"
                           onClick={() => setShowPassword((v) => !v)}
@@ -110,13 +106,8 @@ export default function LoginPage() {
                             <FiEye className="h-4 w-4" />
                           )}
                         </button>
-                      }
-                      classNames={{
-                        inputWrapper:
-                          "border-[#e0d8cc] hover:border-[#314f36] focus-within:!border-[#314f36]",
-                      }}
-                    />
-
+                      </InputGroup.Suffix>
+                    </InputGroup>
                     <FieldError />
                   </TextField>
                 </Fieldset.Group>
@@ -143,6 +134,7 @@ export default function LoginPage() {
             {/* Google */}
 
             <Button
+              onClick={signInWithGoogle}
               type="button"
               variant="outline"
               className="w-full  font-medium text-[#1f1a14] hover:border-[#c0b8b0] hover:bg-[#fafaf8]"

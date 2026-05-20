@@ -27,7 +27,24 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         {children}
 
-        <Toaster position="top-center" reverseOrder={true} />
+        <Toaster
+          toastOptions={{
+            className:
+              "bg-[#ffffff] text-[#18181b] border border-[#e4e4e7] shadow-lg dark:bg-[#18181b] dark:text-[#ffffff] dark:border-[#3f3f46]",
+
+            success: {
+              className:
+                "bg-[#f0fdf4] text-[#166534] border border-[#86efac] dark:bg-[#052e16] dark:text-[#bbf7d0] dark:border-[#166534]",
+            },
+
+            error: {
+              className:
+                "bg-[#fef2f2] text-[#991b1b] border border-[#fca5a5] dark:bg-[#450a0a] dark:text-[#fecaca] dark:border-[#991b1b]",
+            },
+          }}
+          position="top-center"
+          reverseOrder={true}
+        />
       </body>
     </html>
   );

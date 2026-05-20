@@ -29,19 +29,19 @@ A seamless and modern web application designed to digitize the traditional libra
 
 ### 1. Layout Structure
 
-#### Header (Navbar)
+#### Header (Navbar) - done
 
 - **Left:** Website logo linking to the Home page. - done
 - **Center:** Navigation links for Home, All Books, and My Profile. - done
 - **Right:** Conditional rendering:
-  - If logged out, show `Login`.
-  - If logged in, show the user's name and a `Logout` button.
+  - If logged out, show `Login`. - done
+  - If logged in, show the user's name and a `Logout` button. - done
 
 #### Footer
 
-- A custom-designed footer featuring social media links and a **Contact Us** section.
+- A custom-designed footer featuring social media links and a **Contact Us** section. -
 
-### 2. JSON Data Generation
+### 2. JSON Data Generation - done
 
 Use the following structure for the book data: - done
 
@@ -68,7 +68,7 @@ Suggested prompt for ChatGPT or Gemini:
 - **Featured Books:** Show the top 4 books fetched from the server or local JSON data. Each card must include a `View Details` button.
 - Add **two additional sections** based on your own ideas. - done
 
-### 4. Authentication
+### 4. Authentication -
 
 #### User Login
 

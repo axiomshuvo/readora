@@ -2,15 +2,15 @@
 
 > A personal product focused on modern book discovery, secure borrowing flows, and a clean digital library experience.
 
-| Project    | Details                                                     |
-| ---------- | ----------------------------------------------------------- |
-| Name       | **Readora**                                                 |
-| Type       | Personal Project                                            |
-| Author     | [Pradipta Sarker](https://github.com/axiomshuvo)            |
-| GitHub     | [@axiomshuvo](https://github.com/axiomshuvo)                |
-| Repository | [axiomshuvo/readora](https://github.com/axiomshuvo/readora) |
-| Books API  | https://api-server-scoy.onrender.com/books                  |
-| Live Site  | Add your deployed URL here                                  |
+| Project    | Details                                                                                  |
+| ---------- | ---------------------------------------------------------------------------------------- |
+| Name       | **Readora**                                                                              |
+| Type       | Personal Project                                                                         |
+| Author     | [Pradipta Sarker](https://github.com/axiomshuvo)                                         |
+| GitHub     | [@axiomshuvo](https://github.com/axiomshuvo)                                             |
+| Repository | [axiomshuvo/readora](https://github.com/axiomshuvo/readora)                              |
+| Books API  | [https://api-server-scoy.onrender.com/books](https://api-server-scoy.onrender.com/books) |
+| Live Site  | [Live Site](https://readora-opal.vercel.app/)                                            |
 
 ---
 
@@ -82,7 +82,7 @@ Readora is a modern online book borrowing platform built as a personal project. 
 
 - **Repository:** [axiomshuvo/readora](https://github.com/axiomshuvo/readora)
 - **Books API:** https://api-server-scoy.onrender.com/books
-- **Live Site:** Add your deployed URL here
+- **Live Site:** [Live Site](https://readora-opal.vercel.app/)
 
 ## Features
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { authClient } from "@/lib/auth-client";
+import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@heroui/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -31,7 +31,7 @@ export default function Navbar() {
     router.push(href);
   };
 
-  const { data: session } = authClient.useSession();
+  const { session, signOut } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/5 bg-[linear-gradient(180deg,rgba(255,254,250,0.98),rgba(250,246,239,0.94))] backdrop-blur">
@@ -102,15 +102,7 @@ export default function Navbar() {
                 <Button
                   isIconOnly
                   variant="light"
-                  onPress={async () =>
-                    await authClient.signOut({
-                      fetchOptions: {
-                        onSuccess: () => {
-                          router.push("/"); // redirect to home after sign out
-                        },
-                      },
-                    })
-                  }
+                  onPress={signOut}
                   aria-label="Sign out"
                   className="h-11 w-11 rounded-full border border-[#e8ddcd] bg-white text-[#6c6459] shadow-sm transition hover:border-[#314f36] hover:text-[#314f36]"
                 >

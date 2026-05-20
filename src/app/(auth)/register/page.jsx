@@ -8,7 +8,7 @@ import {
   FieldError,
   Fieldset,
   Form,
-  Input,
+  InputGroup,
   Label,
   TextField,
 } from "@heroui/react";
@@ -73,34 +73,24 @@ export default function RegisterPage() {
                   {/* Full Name */}
                   <TextField name="name" type="text" isRequired>
                     <Label>Full Name</Label>
-                    <Input
-                      placeholder="Jane Doe"
-                      variant="bordered"
-                      startContent={
-                        <FiUser className="h-4 w-4 shrink-0 text-[#a89e92]" />
-                      }
-                      classNames={{
-                        inputWrapper:
-                          "border-[#e0d8cc] hover:border-[#314f36] focus-within:!border-[#314f36]",
-                      }}
-                    />
+                    <InputGroup fullWidth>
+                      <InputGroup.Prefix className="border-r-0">
+                        <FiUser className="h-4 w-4" />
+                      </InputGroup.Prefix>
+                      <InputGroup.Input placeholder="Jane Doe" />
+                    </InputGroup>
                     <FieldError />
                   </TextField>
 
                   {/* Email */}
                   <TextField name="email" type="email" isRequired>
                     <Label>Email</Label>
-                    <Input
-                      placeholder="you@example.com"
-                      variant="bordered"
-                      startContent={
-                        <FiMail className="h-4 w-4 shrink-0 text-[#a89e92]" />
-                      }
-                      classNames={{
-                        inputWrapper:
-                          "border-[#e0d8cc] hover:border-[#314f36] focus-within:!border-[#314f36]",
-                      }}
-                    />
+                    <InputGroup fullWidth>
+                      <InputGroup.Prefix className="border-r-0">
+                        <FiMail className="h-4 w-4" />
+                      </InputGroup.Prefix>
+                      <InputGroup.Input placeholder="you@example.com" />
+                    </InputGroup>
                     <FieldError />
                   </TextField>
 
@@ -114,13 +104,12 @@ export default function RegisterPage() {
                     onChange={setPassword}
                   >
                     <Label>Password</Label>
-                    <Input
-                      placeholder="Min. 8 characters"
-                      variant="bordered"
-                      startContent={
-                        <FiLock className="h-4 w-4 shrink-0 text-[#a89e92]" />
-                      }
-                      endContent={
+                    <InputGroup fullWidth>
+                      <InputGroup.Prefix className="border-r-0">
+                        <FiLock className="h-4 w-4" />
+                      </InputGroup.Prefix>
+                      <InputGroup.Input placeholder="Min. 8 characters" />
+                      <InputGroup.Suffix className="border-l-0">
                         <button
                           type="button"
                           onClick={() => setShowPassword((v) => !v)}
@@ -135,12 +124,8 @@ export default function RegisterPage() {
                             <FiEye className="h-4 w-4" />
                           )}
                         </button>
-                      }
-                      classNames={{
-                        inputWrapper:
-                          "border-[#e0d8cc] hover:border-[#314f36] focus-within:!border-[#314f36]",
-                      }}
-                    />
+                      </InputGroup.Suffix>
+                    </InputGroup>
                     <FieldError />
                   </TextField>
 
@@ -154,13 +139,12 @@ export default function RegisterPage() {
                     }
                   >
                     <Label>Confirm Password</Label>
-                    <Input
-                      placeholder="Repeat your password"
-                      variant="bordered"
-                      startContent={
-                        <FiLock className="h-4 w-4 shrink-0 text-[#a89e92]" />
-                      }
-                      endContent={
+                    <InputGroup fullWidth>
+                      <InputGroup.Prefix className="border-r-0">
+                        <FiLock className="h-4 w-4" />
+                      </InputGroup.Prefix>
+                      <InputGroup.Input placeholder="Repeat your password" />
+                      <InputGroup.Suffix className="border-l-0">
                         <button
                           type="button"
                           onClick={() => setShowConfirm((v) => !v)}
@@ -177,12 +161,8 @@ export default function RegisterPage() {
                             <FiEye className="h-4 w-4" />
                           )}
                         </button>
-                      }
-                      classNames={{
-                        inputWrapper:
-                          "border-[#e0d8cc] hover:border-[#314f36] focus-within:!border-[#314f36]",
-                      }}
-                    />
+                      </InputGroup.Suffix>
+                    </InputGroup>
                     <FieldError />
                   </TextField>
 

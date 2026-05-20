@@ -3,7 +3,7 @@
 import { useAuth } from "@/hooks/useAuth";
 import { Button, Card } from "@heroui/react";
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Suspense, useEffect } from "react";
 import toast from "react-hot-toast";
 import {
@@ -22,16 +22,15 @@ const EMPTY_READING = [];
 function DashboardContent() {
   const { session, isPending, signOut, isSigningOut } = useAuth();
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (searchParams.get("welcome") === "google" && session?.user) {
+    if (session?.user && sessionStorage.getItem("googleWelcomePending")) {
+      sessionStorage.removeItem("googleWelcomePending");
       toast.success(
         `Welcome, ${session.user.name}! You have successfully signed in.`,
       );
-      router.replace("/dashboard");
     }
-  }, [searchParams, session, router]);
+  }, [session]);
 
   if (isPending) {
     return (
@@ -126,11 +125,11 @@ function DashboardContent() {
       <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {stats.map(({ label, value, icon: Icon }) => (
           <Card key={label} className="border border-[#e8e0d4] shadow-sm">
-            <Card.Content className="flex items-center gap-4 p-5">
+            <Card.Content className="flex items-center justify-center gap-4 p-5">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f4ede0] text-[#314f36]">
                 <Icon className="h-5 w-5" />
               </span>
-              <div>
+              <div className="text-center">
                 <p className="text-2xl font-semibold text-[#1f1a14]">{value}</p>
                 <p className="text-xs text-[#6c6459]">{label}</p>
               </div>

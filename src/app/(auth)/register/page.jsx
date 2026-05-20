@@ -17,7 +17,14 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
-import { FiEye, FiEyeOff, FiLock, FiMail, FiUser } from "react-icons/fi";
+import {
+  FiEye,
+  FiEyeOff,
+  FiImage,
+  FiLock,
+  FiMail,
+  FiUser,
+} from "react-icons/fi";
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -36,6 +43,7 @@ export default function RegisterPage() {
       name: data.name,
       email: data.email,
       password: data.password,
+      image: data.image || undefined,
     });
 
     setTimeout(() => setLoading(false), 200);
@@ -48,7 +56,7 @@ export default function RegisterPage() {
       `Welcome aboard, ${res.user.name}! Your account has been created.`,
     );
 
-    router.push("/");
+    router.push("/login");
   }
 
   return (
@@ -166,7 +174,26 @@ export default function RegisterPage() {
                     <FieldError />
                   </TextField>
 
-                  {/* Terms — spans both columns, left-aligned */}
+                  {/* Profile Image URL optional full width */}
+                  <div className="col-span-full">
+                    <TextField name="image" type="url">
+                      <Label>
+                        Profile Image URL{" "}
+                        <span className="text-xs font-normal text-[#a89e92]">
+                          (optional)
+                        </span>
+                      </Label>
+                      <InputGroup fullWidth>
+                        <InputGroup.Prefix className="border-r-0">
+                          <FiImage className="h-4 w-4" />
+                        </InputGroup.Prefix>
+                        <InputGroup.Input placeholder="https://example.com/avatar.png" />
+                      </InputGroup>
+                      <FieldError />
+                    </TextField>
+                  </div>
+
+                  {/* Terms spans both columns left-aligned */}
                   <div className="col-span-full flex justify-center mt-5">
                     <Checkbox name="terms" isRequired value="agreed">
                       <Checkbox.Control>

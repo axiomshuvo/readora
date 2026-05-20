@@ -2,6 +2,7 @@
 
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@heroui/react";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiBookOpen, FiLogOut, FiMenu, FiUser, FiX } from "react-icons/fi";
@@ -92,8 +93,18 @@ export default function Navbar() {
                   onPress={() => navigateTo("/dashboard")}
                   className="flex h-11 items-center gap-2.5 rounded-full border border-[#e0d8cc] bg-white pl-1.5 pr-4 text-sm font-medium text-[#1f1a14] shadow-sm transition hover:-translate-y-0.5 hover:border-[#314f36]"
                 >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#314f36] text-xs font-semibold text-white">
-                    {session.user.name?.charAt(0).toUpperCase()}
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#314f36] text-xs font-semibold text-white">
+                    {session.user.image ? (
+                      <Image
+                        src={session.user.image}
+                        alt={session.user.name ?? "Avatar"}
+                        width={32}
+                        height={32}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      session.user.name?.charAt(0).toUpperCase()
+                    )}
                   </span>
                   <span className="hidden max-w-30 truncate sm:inline">
                     {session.user.name}

@@ -20,11 +20,13 @@ export function useAuth() {
 
   async function signInWithGoogle() {
     try {
+      sessionStorage.setItem("googleWelcomePending", "1");
       await authClient.signIn.social({
         provider: "google",
-        callbackURL: "/dashboard?welcome=google",
+        callbackURL: "/dashboard",
       });
     } catch (err) {
+      sessionStorage.removeItem("googleWelcomePending");
       toast.error(err?.message ?? "Google sign-in failed. Please try again.");
     }
   }

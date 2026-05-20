@@ -31,8 +31,8 @@ A seamless and modern web application designed to digitize the traditional libra
 
 #### Header (Navbar)
 
-- **Left:** Website logo linking to the Home page.
-- **Center:** Navigation links for Home, All Books, and My Profile.
+- **Left:** Website logo linking to the Home page. - done
+- **Center:** Navigation links for Home, All Books, and My Profile. - done
 - **Right:** Conditional rendering:
   - If logged out, show `Login`.
   - If logged in, show the user's name and a `Logout` button.
@@ -43,7 +43,7 @@ A seamless and modern web application designed to digitize the traditional libra
 
 ### 2. JSON Data Generation
 
-Use the following structure for the book data:
+Use the following structure for the book data: - done
 
 ```json
 {

@@ -1,27 +1,19 @@
 "use client";
 
-import {
-  Button,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-  Link,
-} from "@heroui/react";
-import { useState } from "react";
+import { Chip, Dropdown, Label, Link } from "@heroui/react";
 import {
   FiBookOpen,
   FiChevronDown,
   FiHeadphones,
   FiPackage,
   FiShield,
-  FiSparkles,
+  FiStar,
 } from "react-icons/fi";
 
 const benefitItems = [
   {
     label: "Free 7-day membership trial",
-    icon: FiSparkles,
+    icon: FiStar,
   },
   {
     label: "Cancel anytime",
@@ -46,16 +38,7 @@ const supportLinks = [
   },
 ];
 
-const languageOptions = [
-  { key: "en", label: "EN" },
-  { key: "bn", label: "BN" },
-];
-
 export default function TopBar() {
-  const [language, setLanguage] = useState("en");
-  const selectedLanguageLabel =
-    languageOptions.find((item) => item.key === language)?.label ?? "EN";
-
   return (
     <div className="border-b border-black/5 bg-[#fbf8f2] text-[#6b655d]">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
@@ -64,15 +47,16 @@ export default function TopBar() {
             const Icon = item.icon;
 
             return (
-              <div
+              <Chip
                 key={item.label}
-                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#e7ddcd] bg-white/80 px-3 py-1.5 text-[11px] font-medium whitespace-nowrap text-[#5f584f] shadow-[0_8px_20px_rgba(35,31,24,0.03)]"
+                variant="bordered"
+                className="shrink-0 border-[#e7ddcd] bg-white/80 px-2.5 py-1 text-[11px] font-medium whitespace-nowrap text-[#5f584f] shadow-[0_8px_20px_rgba(35,31,24,0.03)]"
               >
-                <span className="text-[#39573e]">
+                <span className="mr-1.5 text-[#39573e]">
                   <Icon className="h-3.5 w-3.5" />
                 </span>
-                <span>{item.label}</span>
-              </div>
+                <Chip.Label>{item.label}</Chip.Label>
+              </Chip>
             );
           })}
         </div>
@@ -95,36 +79,26 @@ export default function TopBar() {
           })}
 
           <Dropdown placement="bottom-end">
-            <DropdownTrigger>
-              <Button
-                radius="full"
-                variant="light"
-                className="h-8 min-w-0 border border-[#e7ddcd] bg-white/85 px-3 text-xs font-semibold text-[#3f3a33] shadow-sm"
-              >
-                {selectedLanguageLabel}
+            <Dropdown.Trigger className="h-8 min-w-0 rounded-full border border-[#e7ddcd] bg-white/85 px-3 text-xs font-semibold text-[#3f3a33] shadow-sm transition hover:bg-white">
+              <span className="inline-flex items-center gap-1.5">
+                EN
                 <FiChevronDown className="h-3.5 w-3.5" />
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu
-              aria-label="Language selection"
-              disallowEmptySelection
-              selectedKeys={new Set([language])}
-              selectionMode="single"
-              onSelectionChange={(keys) => {
-                if (keys === "all") {
-                  return;
-                }
+              </span>
+            </Dropdown.Trigger>
 
-                const [nextLanguage] = Array.from(keys);
-                if (typeof nextLanguage === "string") {
-                  setLanguage(nextLanguage);
-                }
-              }}
-            >
-              {languageOptions.map((item) => (
-                <DropdownItem key={item.key}>{item.label}</DropdownItem>
-              ))}
-            </DropdownMenu>
+            <Dropdown.Popover>
+              <Dropdown.Menu
+                aria-label="Language options"
+                onAction={(key) => console.log(key)}
+              >
+                <Dropdown.Item id="en" textValue="EN">
+                  <Label>EN</Label>
+                </Dropdown.Item>
+                <Dropdown.Item id="bn" textValue="BN">
+                  <Label>BN</Label>
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown.Popover>
           </Dropdown>
         </div>
       </div>

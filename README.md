@@ -9,6 +9,7 @@
 | Author     | [Pradipta Sarker](https://github.com/axiomshuvo)            |
 | GitHub     | [@axiomshuvo](https://github.com/axiomshuvo)                |
 | Repository | [axiomshuvo/readora](https://github.com/axiomshuvo/readora) |
+| Books API  | https://api-server-scoy.onrender.com/books                  |
 | Live Site  | Add your deployed URL here                                  |
 
 ---
@@ -80,6 +81,7 @@ Readora is a modern online book borrowing platform built as a personal project. 
 ## Links
 
 - **Repository:** [axiomshuvo/readora](https://github.com/axiomshuvo/readora)
+- **Books API:** https://api-server-scoy.onrender.com/books
 - **Live Site:** Add your deployed URL here
 
 ## Features

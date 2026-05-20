@@ -1,5 +1,6 @@
-import Navbar from "@/components/Navbar";
-import TopBar from "@/components/TopBar";
+import Footer from "@/components/shared/Footer";
+import Navbar from "@/components/shared/Navbar";
+import TopBar from "@/components/shared/TopBar";
 
 export default function MainLayout({ children }) {
   return (
@@ -7,6 +8,7 @@ export default function MainLayout({ children }) {
       <TopBar />
       <Navbar />
       <main className="flex-1">{children}</main>
+      <Footer />
     </>
   );
 }

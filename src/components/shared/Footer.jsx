@@ -75,7 +75,7 @@ export default function Footer() {
 
   return (
     <footer className=" border-t border-black/5 bg-[linear-gradient(180deg,#fbf7f1_0%,#f6efe4_100%)] text-[#1f1a14]">
-      <div className="mx-auto w-full max-w-7xl px-4 pb-6 pt-8 sm:px-6 lg:px-8">
+      <div className="container mx-auto py-12 ">
         <Card
           shadow="none"
           className="overflow-hidden rounded-[2rem] border border-[#eadfce] bg-white/70 backdrop-blur-sm"

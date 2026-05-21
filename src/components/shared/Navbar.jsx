@@ -14,7 +14,6 @@ const menuItems = [
   // { label: "Membership", href: "/#membership" },
 
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact-us" },
 ];
 
 function isActivePath(pathname, href) {
@@ -36,7 +35,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50  mb-5 border-b border-black/5 bg-[linear-gradient(180deg,rgba(255,254,250,0.98),rgba(250,246,239,0.94))] backdrop-blur">
-      <div className="mx-auto container ">
+      <div className="mx-auto  container ">
         <div className="flex items-center gap-3 py-4">
           <Button
             variant="light"

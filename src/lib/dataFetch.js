@@ -22,13 +22,13 @@ export async function BookDetails({ bookId }) {
 
 export async function BookCategory() {
   const response = await fetch(
-    "https://api-server-scoy.onrender.com/books?category",
+    "https://api-server-scoy.onrender.com/categories",
   );
   if (!response.ok) {
     throw new Error("Failed to fetch books by category");
   }
   const data = await response.json();
-  console.log(`Fetched books for category "${category}":`, data);
+  console.log("Fetched book categories:", data);
   return data;
 }
 

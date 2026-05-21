@@ -1,6 +1,6 @@
 export async function GetAllBooks() {
   const response = await fetch("https://api-server-scoy.onrender.com/books", {
-    next: { revalidate: 3600 },
+    next: { revalidate: 86400 },
   });
   if (!response.ok) {
     throw new Error("Failed to fetch books");
@@ -12,7 +12,7 @@ export async function GetAllBooks() {
 export async function BookDetails({ bookId }) {
   const response = await fetch(
     `https://api-server-scoy.onrender.com/books/${bookId}`,
-    { next: { revalidate: 300 } },
+    { next: { revalidate: 86400 } },
   );
   if (!response.ok) {
     throw new Error("Failed to fetch book details");
@@ -38,7 +38,7 @@ export async function GetBooksByCategory(category) {
     `https://api-server-scoy.onrender.com/books?category=${encodeURIComponent(
       category,
     )}`,
-    { next: { revalidate: 3600 } },
+    { next: { revalidate: 86400 } },
   );
   if (!response.ok) {
     throw new Error("Failed to fetch books by category");

@@ -97,7 +97,7 @@ function AvailabilityBadge({ available, total }) {
 function BookCard({ book }) {
   return (
     <div className="group flex flex-col overflow-hidden rounded-2xl border border-[#e8e0d4] bg-white shadow-[0_2px_8px_rgba(26,26,26,0.04)] transition hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(49,79,54,0.10)]">
-      <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#f5f0e8]">
+      <div className="relative aspect-2/3 w-full overflow-hidden bg-[#f5f0e8]">
         {book.image_url ? (
           <Image
             src={book.image_url}

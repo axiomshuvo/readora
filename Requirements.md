@@ -143,7 +143,7 @@ Additional options: - [done]
 - **Access:** Only logged-in users can view this page. - [done]
 - Show all user information. - [done]
 
-### 8. Update Information Feature
+### 8. Update Information Feature - [done]
 
 From the My Profile route:
 
@@ -160,7 +160,7 @@ Follow this documentation:
 
 ## Additional Challenges
 
-### 1. Category Sidebar
+### 1. Category Sidebar - [done]
 
 Add a functional left sidebar on the All Books page to filter books by category, such as:
 
@@ -168,22 +168,22 @@ Add a functional left sidebar on the All Books page to filter books by category,
 - Tech
 - Science
 
-### 2. Use One Extra npm Package
+### 2. Use One Extra npm Package [done]
 
 Implement at least one of the following packages:
 
 - Animate.css
 - React Spring
-- Swiper.js
+- Swiper.js - [used for the Home page banner]
 
-## Tech Stack
+## Tech Stack - [done]
 
 - Next.js
 - Tailwind CSS
 - DaisyUI or HeroUI
 - BetterAuth
 
-## What to Submit
+## What to Submit - [done]
 
-- **GitHub Repository Link:**
-- **Live Site Link:**
+- **GitHub Repository Link:** - https://github.com/axiomshuvo/readora
+- **Live Site Link:** - https://readora-opal.vercel.app/

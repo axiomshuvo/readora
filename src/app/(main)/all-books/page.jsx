@@ -16,7 +16,7 @@ export default async function AllBooksPage({ searchParams }) {
         (book) => book.category?.toLowerCase() === category.toLowerCase(),
       )
     : allBooks;
-  console.log("Books in category", books);
+  // console.log("Books in category", books);
 
   const heading = category ? category : "All Books";
 

@@ -10,6 +10,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Always verify library versions before writing any code
 
+⛔ **NEVER write any library-specific code without first reading `package.json` AND the relevant `node_modules/<pkg>/dist/*.d.ts`. Violation of this rule causes bugs.**
+
 **Before using any library API, component, or prop — read `package.json` first.**
 
 ## Current dependency versions (from package.json)

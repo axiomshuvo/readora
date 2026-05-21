@@ -1,3 +1,4 @@
+import BorrowButton from "@/components/BorrowButton";
 import { BookDetails } from "@/lib/dataFetch";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +8,6 @@ import {
   FiBook,
   FiBookOpen,
   FiCalendar,
-  FiChevronRight,
   FiClock,
   FiGlobe,
   FiHash,
@@ -18,10 +18,6 @@ import {
 export default async function SingleBookDetails({ params }) {
   const { id } = await params;
   const book = await BookDetails({ bookId: id });
-
-  const availabilityPct = Math.round(
-    (book.available_quantity / book.total_quantity) * 100,
-  );
 
   return (
     <div className="min-h-screen bg-[#faf4e8]">
@@ -167,31 +163,20 @@ export default async function SingleBookDetails({ params }) {
                 <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
                   <div
                     className="h-full rounded-full bg-[#314f36] transition-all"
-                    style={{ width: `${availabilityPct}%` }}
+                    style={{
+                      width: `${Math.round((book.available_quantity / book.total_quantity) * 100)}%`,
+                    }}
                   />
                 </div>
               </div>
 
               {/* Borrow button */}
-              <div className="flex justify-center sm:justify-start">
-                <button
-                  disabled={book.available_quantity === 0}
-                  className={`flex items-center gap-2 rounded-xl px-8 py-3 text-sm font-semibold transition ${
-                    book.available_quantity > 0
-                      ? "cursor-pointer bg-[#08440d] text-white shadow-[0_4px_20px_rgba(30,53,36,0.5)] hover:bg-[#263f2c] hover:shadow-[0_6px_24px_rgba(30,53,36,0.6)] active:scale-95"
-                      : "cursor-not-allowed bg-white/10 text-white/40"
-                  }`}
-                >
-                  {book.available_quantity > 0 ? (
-                    <>
-                      Borrow This Book
-                      <FiChevronRight className="h-4 w-4" />
-                    </>
-                  ) : (
-                    "Currently Unavailable"
-                  )}
-                </button>
-              </div>
+              <BorrowButton
+                bookId={book.id}
+                bookTitle={book.title}
+                bookImage={book.image_url ?? ""}
+                available={book.available_quantity}
+              />
             </div>
           </div>
         </div>

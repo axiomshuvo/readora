@@ -41,7 +41,7 @@ const supportLinks = [
 export default function TopBar() {
   return (
     <div className="border-b border-black/5 bg-[#fbf8f2] text-[#6b655d]">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
+      <div className="mx-auto flex container items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
         <div className="scrollbar-none flex min-w-0 items-center gap-2 overflow-x-auto [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {benefitItems.map((item) => {
             const Icon = item.icon;

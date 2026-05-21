@@ -68,11 +68,11 @@ Suggested prompt for ChatGPT or Gemini:
 - **Featured Books:** Show the top 4 books fetched from the server or local JSON data. Each card must include a `View Details` button.
 - Add **two additional sections** based on your own ideas. - done
 
-### 4. Authentication -
+### 4. Authentication - done
 
-#### User Login
+#### User Login - done
 
-Create a login page with:
+Create a login page with: - done
 
 - A title
 - A form containing:
@@ -82,16 +82,16 @@ Create a login page with:
 
 Behavior:
 
-- On successful login, navigate the user to the Home page.
-- On failure, show an error using a toast or an inline form message.
+- On successful login, navigate the user to the Home page. - done
+- On failure, show an error using a toast or an inline form message. - done
 
 Additional options:
 
-- A link to the Register page.
-- A Google social login button.
-- After successful Google login, navigate the user to the Home page.
+- A link to the Register page. - done
+- A Google social login button. - done
+- After successful Google login, navigate the user to the Home page. - done
 
-#### User Registration
+#### User Registration - done
 
 Create a registration page with:
 
@@ -105,26 +105,26 @@ Create a registration page with:
 
 Behavior:
 
-- On successful registration, navigate the user to the Login page.
-- On failure, show an error using a toast or an inline form message.
+- On successful registration, navigate the user to the Login page. - done
+- On failure, show an error using a toast or an inline form message. - done
 
 Additional options:
 
 - A link to the Login page.
 - A Google social login button.
-- After successful Google login, navigate the user to the Home page.
+- After successful Google login, navigate the user to the Home page. - done
 
-> Do not implement email verification or a forgot-password feature for this assignment. You may add them later if needed.
+> Do not implement email verification or a forgot-password feature for this assignment. You may add them later if needed. - ok
 
-### 5. All Books Page
+### 5. All Books Page - done
 
 - A large search input at the top to search books by title.
-- Book cards displaying:
+- Book cards displaying: - done
   - Book image
   - Book title
   - A `Details` button linking to the specific book details page
 
-### 6. Single Book Details Page (Private Route)
+### 6. Single Book Details Page (Private Route) - done
 
 - **Access:** Only logged-in users can view this page.
 - **Layout:** Large book cover on the left, text and details on the right.
@@ -138,7 +138,7 @@ Additional options:
   - If the user is logged out, redirect to the Login page.
   - Show a confirmation toast after the borrow action.
 
-### 7. My Profile (Private Route)
+### 7. My Profile (Private Route) - done
 
 - **Access:** Only logged-in users can view this page.
 - Show all user information.

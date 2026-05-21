@@ -23,7 +23,7 @@ export function useAuth() {
       sessionStorage.setItem("googleWelcomePending", "1");
       await authClient.signIn.social({
         provider: "google",
-        callbackURL: "/dashboard",
+        callbackURL: "/",
       });
     } catch (err) {
       sessionStorage.removeItem("googleWelcomePending");

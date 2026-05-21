@@ -45,7 +45,7 @@ export default function LoginPage() {
     );
     console.log("Login successful:", res);
 
-    router.push("/dashboard");
+    router.push("/");
   }
 
   return (

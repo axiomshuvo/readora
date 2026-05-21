@@ -8,18 +8,17 @@ import ReadersLoveUs from "@/components/ReadersLoveUs";
 export default function Home() {
   return (
     <>
+      <div className="container mx-auto w-full">
+        {/* Search bar */}
+        <Browse />
+        <Hero />
+      </div>
       {/* Hero slider */}
-      <Hero />
 
       {/* Scrolling marquee — full width, outside the container */}
       <Marque />
 
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Search bar */}
-        <div className="mt-6">
-          <Browse />
-        </div>
-
         {/* How It Works + Readers Love Us — side by side on large screens */}
         <div className="mt-2 grid gap-10 py-8 lg:grid-cols-2 lg:divide-x lg:divide-[#ede5d8]">
           <HowItWorks />

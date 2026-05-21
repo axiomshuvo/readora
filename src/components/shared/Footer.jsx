@@ -74,7 +74,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-16 border-t border-black/5 bg-[linear-gradient(180deg,#fbf7f1_0%,#f6efe4_100%)] text-[#1f1a14]">
+    <footer className=" border-t border-black/5 bg-[linear-gradient(180deg,#fbf7f1_0%,#f6efe4_100%)] text-[#1f1a14]">
       <div className="mx-auto w-full max-w-7xl px-4 pb-6 pt-8 sm:px-6 lg:px-8">
         <Card
           shadow="none"

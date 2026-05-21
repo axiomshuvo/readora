@@ -122,8 +122,10 @@ function LoginForm() {
                 <Fieldset.Actions className="flex-col">
                   <Button
                     type="submit"
+                    variant="primary"
                     isPending={loading}
-                    className="w-full rounded-xl bg-[#314f36] font-semibold text-white shadow-[0_8px_20px_rgba(49,79,54,0.2)] hover:bg-[#27412b]"
+                    fullWidth
+                    className="rounded-xl bg-[#314f36] font-semibold text-white shadow-[0_8px_20px_rgba(49,79,54,0.2)] hover:bg-[#27412b]"
                   >
                     {loading ? "Signing in…" : "Sign In"}
                   </Button>
@@ -144,7 +146,8 @@ function LoginForm() {
               onClick={signInWithGoogle}
               type="button"
               variant="outline"
-              className="w-full  font-medium text-[#1f1a14] hover:border-[#c0b8b0] hover:bg-[#fafaf8]"
+              fullWidth
+              className="text-[#1f1a14] hover:border-[#c0b8b0] hover:bg-[#fafaf8]"
             >
               <FcGoogle className="h-4.5 w-4.5" />
               Continue with Google

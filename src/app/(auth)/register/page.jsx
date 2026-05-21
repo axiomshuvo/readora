@@ -211,6 +211,7 @@ export default function RegisterPage() {
                 <Fieldset.Actions className="justify-center">
                   <Button
                     type="submit"
+                    variant="primary"
                     isPending={loading}
                     className="min-w-48 rounded-xl bg-[#314f36] px-8 font-semibold text-white shadow-[0_8px_20px_rgba(49,79,54,0.2)] hover:bg-[#27412b]"
                   >
@@ -232,7 +233,7 @@ export default function RegisterPage() {
               <Button
                 type="button"
                 variant="outline"
-                className="min-w-48 border-[#e0d8cc] px-8 font-medium text-[#1f1a14] hover:border-[#c0b8b0] hover:bg-[#fafaf8]"
+                className="min-w-48 border-[#e0d8cc] px-8 text-[#1f1a14] hover:border-[#c0b8b0] hover:bg-[#fafaf8]"
               >
                 <FcGoogle className="h-[18px] w-[18px]" />
                 Continue with Google

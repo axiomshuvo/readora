@@ -196,7 +196,7 @@ function ProfileContent() {
               <Button
                 variant="outline"
                 onPress={signOut}
-                className=" border-[#314f36] px-5 py-2.5 text-sm font-medium text-[#314f36] transition hover:bg-[#314f36] hover:text-white"
+                className="border-[#314f36] px-5 py-2.5 text-[#314f36] transition hover:bg-[#314f36] hover:text-white"
               >
                 <FiLogOut className="h-4 w-4" />
                 Sign Out
@@ -214,7 +214,7 @@ function ProfileContent() {
                   });
                   setIsEditing((v) => !v);
                 }}
-                className="border-[#314f36] px-5 py-2.5 text-sm font-medium text-[#314f36] transition hover:bg-[#314f36] hover:text-white"
+                className="border-[#314f36] px-5 py-2.5 text-[#314f36] transition hover:bg-[#314f36] hover:text-white"
               >
                 <FiEdit2 className="h-4 w-4" />
                 Update Profile
@@ -354,14 +354,15 @@ function ProfileContent() {
               <Button
                 variant="outline"
                 onPress={() => setIsEditing(false)}
-                className="rounded-full border border-[#e8ddcd] px-5 text-sm text-[#6c6459] transition hover:border-[#314f36] hover:text-[#1f1a14]"
+                className="rounded-full border border-[#e8ddcd] px-5 text-[#6c6459] transition hover:border-[#314f36] hover:text-[#1f1a14]"
               >
                 Cancel
               </Button>
               <Button
+                variant="primary"
                 onPress={handleUpdate}
                 isPending={isUpdating}
-                className="rounded-full bg-[#314f36] px-5 text-sm font-medium text-white transition hover:bg-[#263f2b]"
+                className="rounded-full bg-[#314f36] px-5 text-white transition hover:bg-[#263f2b]"
               >
                 Save Changes
               </Button>
@@ -405,7 +406,7 @@ function ProfileContent() {
               <Button
                 variant="outline"
                 onPress={() => router.push("/all-books")}
-                className="mt-1 rounded-full border border-[#314f36] px-5 text-sm font-medium text-[#314f36] transition hover:bg-[#314f36] hover:text-white"
+                className="mt-1 rounded-full border border-[#314f36] px-5 text-[#314f36] transition hover:bg-[#314f36] hover:text-white"
               >
                 Browse Books
               </Button>
@@ -468,7 +469,7 @@ function ProfileContent() {
               <Button
                 variant="outline"
                 onPress={() => router.push("/all-books")}
-                className="mt-1 rounded-full border border-[#314f36] px-5 text-sm font-medium text-[#314f36] transition hover:bg-[#314f36] hover:text-white"
+                className="mt-1 rounded-full border border-[#314f36] px-5 text-[#314f36] transition hover:bg-[#314f36] hover:text-white"
               >
                 Browse Books
               </Button>

@@ -16,8 +16,8 @@ const contactItems = [
   },
   {
     label: "Visit",
-    value: "Dhanmondi, Dhaka 1209",
-    href: "https://maps.google.com/?q=Dhanmondi,Dhaka",
+    value: "Banasree, Dhaka 1209",
+    href: "https://maps.google.com/?q=Banasree,Dhaka",
     icon: FiMapPin,
   },
 ];
@@ -82,8 +82,9 @@ export default function ContactUs() {
                 Full Name
               </label>
               <Input
+                fullWidth
                 placeholder="Your full name"
-                className="w-full rounded-xl border border-[#eee2d1] bg-white px-4 py-2.5 text-sm text-[#2a241d] placeholder:text-[#b5a99a] focus:outline-none"
+                className="rounded-xl border border-[#eee2d1] bg-white px-4 py-2.5 text-[#2a241d] placeholder:text-[#b5a99a]"
               />
             </div>
 
@@ -92,9 +93,10 @@ export default function ContactUs() {
                 Email Address
               </label>
               <Input
+                fullWidth
                 type="email"
                 placeholder="you@example.com"
-                className="w-full rounded-xl border border-[#eee2d1] bg-white px-4 py-2.5 text-sm text-[#2a241d] placeholder:text-[#b5a99a] focus:outline-none"
+                className="rounded-xl border border-[#eee2d1] bg-white px-4 py-2.5 text-[#2a241d] placeholder:text-[#b5a99a]"
               />
             </div>
 
@@ -103,16 +105,14 @@ export default function ContactUs() {
                 Message
               </label>
               <TextArea
+                fullWidth
                 placeholder="Write your message here…"
                 rows={4}
-                className="w-full rounded-xl border border-[#eee2d1] bg-white px-4 py-2.5 text-sm text-[#2a241d] placeholder:text-[#b5a99a] focus:outline-none"
+                className="rounded-xl border border-[#eee2d1] bg-white px-4 py-2.5 text-[#2a241d] placeholder:text-[#b5a99a]"
               />
             </div>
 
-            <Button
-              variant="primary"
-              className="mt-2 flex w-full items-center justify-center gap-2"
-            >
+            <Button variant="primary" fullWidth className="mt-2">
               <FiSend className="h-4 w-4" />
               Send Message
             </Button>

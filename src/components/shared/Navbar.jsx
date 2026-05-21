@@ -38,7 +38,7 @@ export default function Navbar() {
       <div className="mx-auto  container ">
         <div className="flex items-center gap-3 py-4">
           <Button
-            variant="light"
+            variant="ghost"
             onPress={() => navigateTo("/")}
             className="h-auto shrink-0 gap-3 px-0 hover:bg-transparent"
           >
@@ -58,9 +58,9 @@ export default function Navbar() {
                 return (
                   <li key={item.label}>
                     <Button
-                      variant="light"
+                      variant="ghost"
                       onPress={() => navigateTo(item.href)}
-                      className={`relative inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition ${
+                      className={`relative rounded-full px-4 py-2 transition ${
                         isActive
                           ? "bg-[#f6efe4] text-[#1f1a14]"
                           : "text-[#5f584f] hover:bg-[#faf6ef] hover:text-[#1f1a14]"
@@ -79,18 +79,18 @@ export default function Navbar() {
 
           <div className="ml-auto flex items-center gap-2">
             <Button
-              variant="solid"
+              variant="outline"
               onPress={() => navigateTo("/all-books")}
-              className="hidden h-11 items-center gap-2 rounded-full border border-[#314f36] bg-transparent px-4 text-sm font-medium text-[#314f36] transition hover:-translate-y-0.5 hover:bg-[#314f36] hover:text-white sm:inline-flex"
+              className="hidden h-11 rounded-full border border-[#314f36] px-4 text-[#314f36] transition hover:-translate-y-0.5 hover:bg-[#314f36] hover:text-white sm:inline-flex"
             >
               Browse Now
             </Button>
             {session ? (
               <>
                 <Button
-                  variant="light"
+                  variant="ghost"
                   onPress={() => navigateTo("/profile")}
-                  className="flex h-11 items-center gap-2.5 rounded-full border border-[#e0d8cc] bg-white pl-1.5 pr-4 text-sm font-medium text-[#1f1a14] shadow-sm transition hover:-translate-y-0.5 hover:border-[#314f36]"
+                  className="flex h-11 gap-2.5 rounded-full border border-[#e0d8cc] bg-white pl-1.5 pr-4 text-[#1f1a14] shadow-sm transition hover:-translate-y-0.5 hover:border-[#314f36]"
                 >
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#314f36] text-xs font-semibold text-white">
                     {session.user.image ? (
@@ -111,7 +111,7 @@ export default function Navbar() {
                 </Button>
                 <Button
                   isIconOnly
-                  variant="light"
+                  variant="ghost"
                   onPress={signOut}
                   aria-label="Sign out"
                   className="h-11 w-11 rounded-full border border-[#e8ddcd] bg-white text-[#6c6459] shadow-sm transition hover:border-[#314f36] hover:text-[#314f36]"
@@ -121,9 +121,9 @@ export default function Navbar() {
               </>
             ) : (
               <Button
-                variant="solid"
+                variant="primary"
                 onPress={() => navigateTo("/login")}
-                className="inline-flex h-11 items-center gap-2 rounded-full bg-[#314f36] px-4 text-sm font-medium text-white shadow-[0_12px_24px_rgba(49,79,54,0.22)] transition hover:-translate-y-0.5 hover:bg-[#27412b]"
+                className="h-11 rounded-full bg-[#314f36] px-4 text-white shadow-[0_12px_24px_rgba(49,79,54,0.22)] transition hover:-translate-y-0.5 hover:bg-[#27412b]"
               >
                 <FiUser className="h-4 w-4" />
                 <span className="hidden sm:inline">Sign In</span>
@@ -132,7 +132,7 @@ export default function Navbar() {
 
             <Button
               isIconOnly
-              variant="light"
+              variant="ghost"
               aria-label="Open menu"
               aria-expanded={isOpen}
               onPress={() => setIsOpen((open) => !open)}
@@ -156,9 +156,9 @@ export default function Navbar() {
                 return (
                   <Button
                     key={item.label}
-                    variant="light"
+                    variant="ghost"
                     onPress={() => navigateTo(item.href)}
-                    className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
+                    className={`rounded-2xl px-4 py-3 transition ${
                       isActive
                         ? "bg-[#f4ecdf] text-[#1f1a14]"
                         : "text-[#5f584f] hover:bg-white/80 hover:text-[#1f1a14]"

@@ -1,5 +1,7 @@
 import BorrowButton from "@/components/BorrowButton";
+import { auth } from "@/lib/auth";
 import { BookDetails } from "@/lib/dataFetch";
+import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -17,7 +19,11 @@ import {
 
 export default async function SingleBookDetails({ params }) {
   const { id } = await params;
-  const book = await BookDetails({ bookId: id });
+  const [book, session] = await Promise.all([
+    BookDetails({ bookId: id }),
+    auth.api.getSession({ headers: await headers() }),
+  ]);
+  const userId = session?.user?.id ?? null;
 
   return (
     <div className="min-h-screen bg-[#faf4e8]">
@@ -176,6 +182,7 @@ export default async function SingleBookDetails({ params }) {
                 bookTitle={book.title}
                 bookImage={book.image_url ?? ""}
                 available={book.available_quantity}
+                userId={userId}
               />
             </div>
           </div>

@@ -24,7 +24,8 @@ import {
   FiX,
 } from "react-icons/fi";
 
-const LS_KEY = "readora_borrows";
+const LS_KEY = (userId) =>
+  userId ? `readora_borrows_${userId}` : "readora_borrows_guest";
 
 function ProfileContent() {
   const { session, isPending, signOut, isSigningOut } = useAuth();
@@ -38,14 +39,18 @@ function ProfileContent() {
     confirmPassword: "",
   });
   const [isUpdating, setIsUpdating] = useState(false);
-  const [borrows, setBorrows] = useState(() => {
-    if (typeof window === "undefined") return [];
+  const [borrows, setBorrows] = useState([]);
+
+  useEffect(() => {
+    if (!session?.user?.id) return;
     try {
-      return JSON.parse(localStorage.getItem(LS_KEY) ?? "[]");
+      setBorrows(
+        JSON.parse(localStorage.getItem(LS_KEY(session.user.id)) ?? "[]"),
+      );
     } catch {
-      return [];
+      setBorrows([]);
     }
-  });
+  }, [session?.user?.id]);
   const [showPasswords, setShowPasswords] = useState({
     new: false,
     confirm: false,

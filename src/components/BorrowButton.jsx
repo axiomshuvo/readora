@@ -3,23 +3,27 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-const LS_KEY = "readora_borrows";
+function getLsKey(userId) {
+  return userId ? `readora_borrows_${userId}` : "readora_borrows_guest";
+}
 
 export default function BorrowButton({
   bookId,
   bookTitle,
   bookImage,
   available,
+  userId,
 }) {
   const [borrowed, setBorrowed] = useState(false);
 
   useEffect(() => {
-    const borrows = JSON.parse(localStorage.getItem(LS_KEY) ?? "[]");
+    const borrows = JSON.parse(localStorage.getItem(getLsKey(userId)) ?? "[]");
     setBorrowed(borrows.some((b) => b.bookId === bookId));
-  }, [bookId]);
+  }, [bookId, userId]);
 
   function handleBorrow() {
-    const borrows = JSON.parse(localStorage.getItem(LS_KEY) ?? "[]");
+    const key = getLsKey(userId);
+    const borrows = JSON.parse(localStorage.getItem(key) ?? "[]");
     borrows.push({
       bookId,
       bookTitle,
@@ -27,7 +31,7 @@ export default function BorrowButton({
       borrowedAt: new Date().toISOString(),
       status: "active",
     });
-    localStorage.setItem(LS_KEY, JSON.stringify(borrows));
+    localStorage.setItem(key, JSON.stringify(borrows));
     setBorrowed(true);
     toast.success(`"${bookTitle}" borrowed successfully!`);
   }

@@ -1,64 +1,136 @@
 import SearchBar from "@/components/SearchBar";
-import { GetAllBooks } from "@/lib/dataFetch";
+import { BookCategory, GetAllBooks } from "@/lib/dataFetch";
 import Image from "next/image";
 import Link from "next/link";
-import { FiBookOpen, FiStar } from "react-icons/fi";
+import { FiBookOpen, FiGrid, FiStar } from "react-icons/fi";
 
 export default async function AllBooksPage({ searchParams }) {
-  const { search, category } = await searchParams;
-  const allBooks = await GetAllBooks();
+  const { category } = await searchParams;
+  const [allBooks, categories] = await Promise.all([
+    GetAllBooks(),
+    BookCategory(),
+  ]);
 
-  const books = (() => {
-    let result = allBooks;
-    if (category) {
-      result = result.filter(
-        (b) => b.category?.toLowerCase() === category.toLowerCase(),
-      );
-    }
-    if (search) {
-      const q = search.toLowerCase();
-      result = result.filter(
-        (b) =>
-          b.title?.toLowerCase().includes(q) ||
-          b.author?.toLowerCase().includes(q),
-      );
-    }
-    return result;
-  })();
+  const books = category
+    ? allBooks.filter(
+        (book) => book.category?.toLowerCase() === category.toLowerCase(),
+      )
+    : allBooks;
+  console.log("Books in category", books);
 
-  const heading = search
-    ? `Results for "${search}"`
-    : category
-      ? category
-      : "All Books";
+  const heading = category ? category : "All Books";
 
   return (
     <main className="mx-auto container px-4 pb-10 sm:px-6 lg:px-8">
-      {/* Page Header */}
-      <div className=" border border-[#d8d0c8] rounded-lg py-2.5 bg-white mb-8">
-        <SearchBar />
-      </div>
-      <div className="mb-8 text-center">
-        <h1 className="font-heading text-3xl font-semibold text-[#1f1a14]">
-          {heading}
-        </h1>
-        <p className="mt-1.5 text-sm text-[#6c6459]">
-          {books.length} title{books.length !== 1 ? "s" : ""} found
-        </p>
-      </div>
+      {/* Search bar */}
 
-      {/* Grid */}
-      {books.length > 0 ? (
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {books.map((book) => (
-            <BookCard key={book.id} book={book} />
-          ))}
+      <div className="flex gap-6">
+        {/* Sidebar — desktop */}
+        <aside className="hidden w-48 shrink-0 lg:block">
+          <div className="sticky top-6 rounded-2xl border border-[#e8e0d4] bg-white p-4">
+            <div className="mb-3 flex items-center gap-2">
+              <FiGrid className="h-4 w-4 text-[#314f36]" />
+              <span className="text-xs font-semibold uppercase tracking-wide text-[#6c6459]">
+                Categories
+              </span>
+            </div>
+            <ul className="space-y-1">
+              <li>
+                <Link
+                  href="/all-books"
+                  className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors ${
+                    !category
+                      ? "bg-[#314f36] font-semibold text-white"
+                      : "text-[#1f1a14] hover:bg-[#f5f0e8]"
+                  }`}
+                >
+                  <span>All Books</span>
+                  <span className="text-[10px] opacity-60">
+                    {allBooks.length}
+                  </span>
+                </Link>
+              </li>
+              {categories.map((cat) => (
+                <li key={cat.id}>
+                  <Link
+                    href={`/all-books?category=${encodeURIComponent(cat.name)}`}
+                    className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors ${
+                      category?.toLowerCase() === cat.name.toLowerCase()
+                        ? "bg-[#314f36] font-semibold text-white"
+                        : "text-[#1f1a14] hover:bg-[#f5f0e8]"
+                    }`}
+                  >
+                    <span>{cat.name}</span>
+                    {cat.total_books && (
+                      <span className="text-[10px] opacity-60">
+                        {cat.total_books}
+                      </span>
+                    )}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+
+        {/* Main content */}
+        <div className="min-w-0 flex-1">
+          {/* Heading */}
+          <div className="flex justify-between">
+            <div className="mb-6 w-100">
+              <h1 className="font-heading text-2xl font-semibold text-[#1f1a14]">
+                {heading}
+              </h1>
+              <p className="mt-1 text-sm text-[#6c6459]">
+                {books.length} title{books.length !== 1 ? "s" : ""} found
+              </p>
+            </div>
+            <div className="mb-8 w-full flex items-center gap-3 rounded-lg border border-[#d8d0c8] bg-white py-2.5">
+              <SearchBar />
+            </div>
+          </div>
+
+          {/* Category pills — mobile */}
+          <div className="mb-5 flex gap-2 overflow-x-auto pb-1 lg:hidden">
+            <Link
+              href="/all-books"
+              className={`shrink-0 rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                !category
+                  ? "bg-[#314f36] text-white"
+                  : "bg-[#f5f0e8] text-[#6c6459] hover:bg-[#e8e0d4]"
+              }`}
+            >
+              All
+            </Link>
+            {categories.map((cat) => (
+              <Link
+                key={cat.id}
+                href={`/all-books?category=${encodeURIComponent(cat.name)}`}
+                className={`shrink-0 rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                  category?.toLowerCase() === cat.name.toLowerCase()
+                    ? "bg-[#314f36] text-white"
+                    : "bg-[#f5f0e8] text-[#6c6459] hover:bg-[#e8e0d4]"
+                }`}
+              >
+                {cat.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Grid */}
+          {books.length > 0 ? (
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+              {books.map((book) => (
+                <BookCard key={book.id} book={book} />
+              ))}
+            </div>
+          ) : (
+            <p className="py-16 text-center text-sm text-[#6c6459]">
+              No books found. Try a different search.
+            </p>
+          )}
         </div>
-      ) : (
-        <p className="py-16 text-center text-sm text-[#6c6459]">
-          No books found. Try a different search.
-        </p>
-      )}
+      </div>
     </main>
   );
 }

@@ -4,14 +4,14 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 
-export default function SearchBar() {
+export default function SearchBar({ basePath = "/books" }) {
   const [query, setQuery] = useState("");
   const router = useRouter();
 
   function handleSearch() {
     const trimmed = query.trim();
     if (!trimmed) return;
-    router.push(`/books?search=${encodeURIComponent(trimmed)}`);
+    router.push(`${basePath}?search=${encodeURIComponent(trimmed)}`);
   }
 
   function handleKeyDown(e) {

@@ -118,7 +118,7 @@ Additional options: - [done]
 
 ### 5. All Books Page - [done]
 
-- A large search input at the top to search books by title.
+- A large search input at the top to search books by title. - [done]
 - Book cards displaying: - [done]
   - Book image
   - Book title
@@ -138,10 +138,10 @@ Additional options: - [done]
   - If the user is logged out, redirect to the Login page. [done]
   - Show a confirmation toast after the borrow action.
 
-### 7. My Profile (Private Route) - done
+### 7. My Profile (Private Route) - [done]
 
-- **Access:** Only logged-in users can view this page.
-- Show all user information.
+- **Access:** Only logged-in users can view this page. - [done]
+- Show all user information. - [done]
 
 ### 8. Update Information Feature
 

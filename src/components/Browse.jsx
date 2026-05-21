@@ -1,12 +1,8 @@
-"use client";
-
+import SearchBar from "@/components/SearchBar";
 import Link from "next/link";
-import { useState } from "react";
-import { FiBookmark, FiGrid, FiSearch } from "react-icons/fi";
+import { FiBookmark, FiGrid } from "react-icons/fi";
 
 export default function Browse() {
-  const [query, setQuery] = useState("");
-
   return (
     <div className="flex items-center overflow-hidden rounded-2xl border border-[#e8e0d4] bg-white shadow-sm">
       {/* Left — tagline */}
@@ -25,21 +21,7 @@ export default function Browse() {
       <div className="h-10 w-px shrink-0 bg-[#e8e0d4]" />
 
       {/* Search input */}
-      <div className="flex flex-1 items-center gap-3 px-5">
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search by title, author or keyword..."
-          className="flex-1 bg-transparent text-sm text-[#1f1a14] outline-none placeholder:text-[#a89e92]"
-        />
-        <button
-          aria-label="Search"
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#314f36] text-white transition-colors hover:bg-[#263f2b]"
-        >
-          <FiSearch className="h-4 w-4" />
-        </button>
-      </div>
+      <SearchBar />
 
       {/* Divider */}
       <div className="h-10 w-px shrink-0 bg-[#e8e0d4]" />

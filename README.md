@@ -1,148 +1,106 @@
-# Readora 📚
+# 📚 Readora — Online Book Borrowing Platform
 
-> A personal product focused on modern book discovery, secure borrowing flows, and a clean digital library experience.
+> Discover, browse, and borrow books online. A clean digital library experience built with Next.js, Better Auth, and HeroUI.
 
-| Project    | Details                                                                                  |
-| ---------- | ---------------------------------------------------------------------------------------- |
-| Name       | **Readora**                                                                              |
-| Type       | Personal Project                                                                         |
-| Author     | [Pradipta Sarker](https://github.com/axiomshuvo)                                         |
-| GitHub     | [@axiomshuvo](https://github.com/axiomshuvo)                                             |
-| Repository | [axiomshuvo/readora](https://github.com/axiomshuvo/readora)                              |
-| Books API  | [https://api-server-scoy.onrender.com/books](https://api-server-scoy.onrender.com/books) |
-| Live Site  | [Live Site](https://readora-opal.vercel.app/)                                            |
+| | |
+|---|---|
+| **Live Site** | [readora-opal.vercel.app](https://readora-opal.vercel.app/) |
+| **Repository** | [github.com/axiomshuvo/readora](https://github.com/axiomshuvo/readora) |
+| **Author** | [Pradipta Sarker](https://github.com/axiomshuvo) |
+| **Books API** | [api-server-scoy.onrender.com/books](https://api-server-scoy.onrender.com/books) |
 
 ---
 
-## Overview
+## ✨ Key Features
 
-Readora is a modern web application for readers who want a smoother way to explore and borrow books online. The product is designed around clarity, responsiveness, and a structured browsing experience, combining clean visuals with secure account-based access.
+- 🏠 **Landing Page** — Hero banner, marquee, featured books, how it works, testimonials, membership section
+- 📖 **All Books** — Browse the full collection with live title search
+- 🗂️ **Category Filter** — Sidebar filtering by Story, Tech, Science and more
+- 🔐 **Authentication** — Email/password + Google OAuth via Better Auth
+- 🔒 **Protected Routes** — Book details and profile require login
+- 📦 **Borrow System** — Borrow books with per-user localStorage tracking
+- 👤 **Profile Page** — View info, update name/image/password, see active borrows
+- 📱 **Fully Responsive** — Mobile, tablet, and desktop ready
+- 🔔 **Toast Notifications** — Feedback for all user actions
 
-Instead of presenting the app like a student assignment, Readora is positioned as a standalone personal project with clear product goals, focused user flows, and a polished UI direction.
+---
 
-## Product Goals
+## 🗂️ Pages
 
-- Make book discovery simple and visually engaging
-- Support category-based exploration and faster search
-- Protect user-specific actions behind authentication
-- Keep the experience responsive across mobile, tablet, and desktop
-- Provide a clean foundation for a scalable digital library product
+| Page | Route | Access |
+|---|---|---|
+| Home | `/` | Public |
+| All Books | `/all-books` | Public |
+| Categories | `/categories` | Public |
+| About | `/about` | Public |
+| Book Details | `/books/[id]` | 🔒 Private |
+| My Profile | `/profile` | 🔒 Private |
+| Login | `/login` | Public |
+| Register | `/register` | Public |
 
-## Core Experience
+---
 
-- Landing page with a modern, content-first presentation
-- All Books page for browsing the full collection
-- Category-based filtering for structured discovery
-- Search flow for finding books by title
-- Login and registration system powered by Better Auth
-- Protected pages for book details and user profile
-- Profile update flow for personal information
-- Toast-based feedback for user actions and status updates
+## 🛠️ Tech Stack
 
-## Project Structure
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 |
+| UI Library | React 19 |
+| Styling | Tailwind CSS 4 |
+| Component Library | HeroUI v3 |
+| Authentication | Better Auth 1.6 |
+| Database | MongoDB 7 |
+| Notifications | React Hot Toast |
+| Icons | React Icons 5 |
+| Marquee | React Fast Marquee |
+| Carousel | Swiper.js 12 |
 
-- **Home** for brand presentation and featured content
-- **All Books** for browsing and filtering the collection
-- **Login** for returning users
-- **Register** for new account creation
-- **Profile** for user information and updates
+---
 
-## Tech Stack
+## 📦 npm Packages
 
-- **Framework:** Next.js 16
-- **Frontend:** React 19
-- **Styling:** Tailwind CSS 4
-- **UI Library:** HeroUI
-- **Authentication:** Better Auth
-- **Database:** MongoDB
-- **Notifications:** React Hot Toast
+```
+next                       react                react-dom
+better-auth                @better-auth/mongo-adapter
+mongodb                    @heroui/react        @heroui/styles
+tailwindcss                react-hot-toast      react-icons
+react-fast-marquee         swiper
+```
 
-## Main Packages
+---
 
-- `next`
-- `react`
-- `react-dom`
-- `mongodb`
-- `better-auth`
-- `@better-auth/mongo-adapter`
-- `@heroui/react`
-- `@heroui/styles`
-- `tailwindcss`
-- `@tailwindcss/postcss`
-- `react-hot-toast`
-- `react-icons`
-
-## Local Development
-
-# Readora 📚
-
-Readora is a modern online book borrowing platform built as a personal project. It focuses on a clean reading-first experience where users can explore books, browse collections, and move through authentication flows in a simple and responsive interface.
-
-## Links
-
-- **Repository:** [axiomshuvo/readora](https://github.com/axiomshuvo/readora)
-- **Books API:** https://api-server-scoy.onrender.com/books
-- **Live Site:** [Live Site](https://readora-opal.vercel.app/)
-
-## Features
-
-- Modern landing page with a card-based visual layout
-- All Books page for browsing the collection
-- Login and registration pages for user access
-- Better Auth integration for secure authentication
-- Responsive UI built for mobile, tablet, and desktop
-- Toast notifications for user feedback
-
-## Current Pages
-
-- **Home**
-- **All Books**
-- **Login**
-- **Register**
-
-## Tech Stack
-
-- Next.js 16
-- React 19
-- Tailwind CSS 4
-- HeroUI
-- Better Auth
-- MongoDB
-- React Hot Toast
-
-## Packages Used
-
-- `better-auth`
-- `@better-auth/mongo-adapter`
-- `@heroui/react`
-- `@heroui/styles`
-- `mongodb`
-- `react-hot-toast`
-- `react-icons`
-
-## Getting Started
+## 🚀 Local Development
 
 ```bash
+# 1. Clone the repo
+git clone https://github.com/axiomshuvo/readora.git
+cd readora
+
+# 2. Install dependencies
 npm install
+
+# 3. Set up environment variables
+cp .env.example .env.local
+# Fill in MONGODB_URI, BETTER_AUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET
+
+# 4. Run the dev server
 npm run dev
 ```
 
-To create a production build:
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-```bash
-npm run build
+---
+
+## 🔑 Environment Variables
+
+```env
+MONGODB_URI=
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
 ```
 
-## Environment Variables
+---
 
-Create a `.env.local` file in the project root and add the values needed for:
-
-- your MongoDB connection
-- Better Auth configuration
-- Google login credentials if social login is enabled
-
-Keep all secret values private and out of version control.
-
-## Author
-
-Built by [Pradipta Sarker](https://github.com/axiomshuvo) ✨
+Built with ❤️ by [Pradipta Sarker](https://github.com/axiomshuvo)

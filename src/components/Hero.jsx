@@ -184,7 +184,7 @@ export default function Hero() {
                 <div className="absolute bottom-14 left-[32%] -translate-x-1/2">
                   <div className="h-3 w-44 rounded-full bg-[linear-gradient(180deg,#c9a87a,#a87a50)] shadow-md" />
                   <div
-                    className="absolute -top-40 left-1/2 -translate-x-1/2 flex h-40 w-[4.5rem] flex-col items-center justify-center gap-1 rounded-sm px-2 shadow-[0_20px_48px_rgba(0,0,0,0.22)] transition-colors duration-700"
+                    className="absolute -top-40 left-1/2 -translate-x-1/2 flex h-40 w-18 flex-col items-center justify-center gap-1 rounded-sm px-2 shadow-[0_20px_48px_rgba(0,0,0,0.22)] transition-colors duration-700"
                     style={{ backgroundColor: book.bg }}
                   >
                     {book.lines.map((line, idx) => (

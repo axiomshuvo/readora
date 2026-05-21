@@ -30,7 +30,7 @@ function LoginForm() {
     if (searchParams.get("reason") === "auth_required") {
       toast.error("Please sign in to access that page.");
     }
-  }, []);
+  }, [searchParams]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -50,7 +50,6 @@ function LoginForm() {
     toast.success(
       `Welcome back! ${res.user.name} You have successfully signed in.`,
     );
-    console.log("Login successful:", res);
 
     router.push("/");
   }

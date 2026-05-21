@@ -2,19 +2,19 @@
 
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import toast from "react-hot-toast";
-
-// Module-level flag — shared across every useAuth() call in the same page
-let isSigningOut = false;
 
 export function useAuth() {
   const { data: session, isPending } = authClient.useSession();
   const router = useRouter();
+  const [isSigningOut, setIsSigningOut] = useState(false);
 
   async function signOut() {
-    isSigningOut = true;
+    setIsSigningOut(true);
     await authClient.signOut();
     toast.success("Signed out successfully.");
+    setIsSigningOut(false);
     router.refresh();
     router.push("/");
   }

@@ -16,7 +16,7 @@ const quickLinks = [
   { label: "Home", href: "/", icon: FiHome },
   { label: "All Books", href: "/all-books", icon: FiBookOpen },
   { label: "Categories", href: "/categories", icon: FiGrid },
-  { label: "Contact", href: "/contact-us", icon: FiMail },
+  { label: "Contact", href: "/#contact", icon: FiMail },
 ];
 
 const books = [

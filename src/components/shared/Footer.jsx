@@ -14,7 +14,7 @@ const navigationGroups = [
     title: "Quick Links",
     links: [
       { label: "Collection", href: "/all-books" },
-      { label: "Categories", href: "/#categories" },
+      { label: "Categories", href: "/categories" },
       { label: "How It Works", href: "/#how-it-works" },
       { label: "Membership", href: "/#membership" },
       { label: "New Arrivals", href: "/#new-arrivals" },
@@ -27,7 +27,7 @@ const navigationGroups = [
       { label: "FAQs", href: "/#faqs" },
       { label: "Track Order", href: "/#track-order" },
       { label: "Returns", href: "/#returns" },
-      { label: "Contact Us", href: "/contact-us" },
+      { label: "Contact Us", href: "/#contact" },
     ],
   },
   {
@@ -45,22 +45,22 @@ const navigationGroups = [
 const socialLinks = [
   {
     label: "Facebook",
-    href: "https://facebook.com",
+    href: "#",
     icon: FiFacebook,
   },
   {
     label: "Instagram",
-    href: "https://instagram.com",
+    href: "#",
     icon: FiInstagram,
   },
   {
     label: "Twitter",
-    href: "https://x.com",
+    href: "#",
     icon: FiTwitter,
   },
   {
     label: "YouTube",
-    href: "https://youtube.com",
+    href: "#",
     icon: FiYoutube,
   },
 ];

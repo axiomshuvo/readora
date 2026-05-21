@@ -67,7 +67,7 @@ export default function HowItWorks() {
                 </div>
 
                 {/* Title + description */}
-                <div className="max-w-[7.5rem] pt-0.5">
+                <div className="max-w-30 pt-0.5">
                   <p className="text-sm font-semibold text-[#1f1a14]">
                     {step.title}
                   </p>

@@ -39,7 +39,6 @@ export default function BorrowButton({
   if (available === 0) {
     return (
       <button
-        variant="primary"
         disabled
         className="w-52 cursor-not-allowed rounded-xl bg-white/10 px-8 py-3 text-sm font-semibold text-white/40"
       >
@@ -50,7 +49,6 @@ export default function BorrowButton({
 
   return (
     <button
-      variant="primary"
       onClick={handleBorrow}
       disabled={borrowed}
       className={`w-52 rounded-xl px-8 py-3 text-sm font-semibold transition ${

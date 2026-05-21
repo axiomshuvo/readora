@@ -37,8 +37,10 @@ export default function RegisterPage() {
     e.preventDefault();
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.currentTarget));
-    if (data.password !== data.confirmPassword) return;
-    setLoading(true);
+    if (data.password !== data.confirmPassword) {
+      setLoading(false);
+      return;
+    }
     const { data: res, error } = await authClient.signUp.email({
       name: data.name,
       email: data.email,
@@ -46,7 +48,7 @@ export default function RegisterPage() {
       image: data.image || undefined,
     });
 
-    setTimeout(() => setLoading(false), 200);
+    setLoading(false);
     if (error) {
       toast.error(error.message ?? "Registration failed. Please try again.");
       return;
@@ -235,7 +237,7 @@ export default function RegisterPage() {
                 variant="outline"
                 className="min-w-48 border-[#e0d8cc] px-8 text-[#1f1a14] hover:border-[#c0b8b0] hover:bg-[#fafaf8]"
               >
-                <FcGoogle className="h-[18px] w-[18px]" />
+                <FcGoogle className="h-4.5 w-4.5" />
                 Continue with Google
               </Button>
             </div>

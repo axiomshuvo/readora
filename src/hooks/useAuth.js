@@ -15,6 +15,7 @@ export function useAuth() {
     isSigningOut = true;
     await authClient.signOut();
     toast.success("Signed out successfully.");
+    router.refresh();
     router.push("/");
   }
 

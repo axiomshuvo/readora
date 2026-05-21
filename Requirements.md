@@ -29,21 +29,21 @@ A seamless and modern web application designed to digitize the traditional libra
 
 ### 1. Layout Structure
 
-#### Header (Navbar) - done
+#### Header (Navbar) - [done]
 
-- **Left:** Website logo linking to the Home page. - done
-- **Center:** Navigation links for Home, All Books, and My Profile. - done
+- **Left:** Website logo linking to the Home page. - [done]
+- **Center:** Navigation links for Home, All Books, and My Profile. - [done]
 - **Right:** Conditional rendering:
-  - If logged out, show `Login`. - done
-  - If logged in, show the user's name and a `Logout` button. - done
+  - If logged out, show `Login`. - [done]
+  - If logged in, show the user's name and a `Logout` button. - [done]
 
 #### Footer
 
 - A custom-designed footer featuring social media links and a **Contact Us** section. -
 
-### 2. JSON Data Generation - done
+### 2. JSON Data Generation - [done]
 
-Use the following structure for the book data: - done
+Use the following structure for the book data: - [done]
 
 ```json
 {
@@ -57,22 +57,22 @@ Use the following structure for the book data: - done
 }
 ```
 
-Suggested prompt for ChatGPT or Gemini:
+Suggested prompt for ChatGPT or Gemini: [done]
 
 > Generate a JSON array of 12 book objects. Each object must include: id, title, author, description, category (choose from Story, Tech, Science), available_quantity (integer), and image_url.
 
-### 3. Home Page
+### 3. Home Page [done]
 
-- **Banner:** A large "Find Your Next Read" heading with a `Browse Now` button linking to the All Books page. - done
-- **Marquee:** A scrolling line of text such as `New Arrivals: [Book Name] | Special Discount on Memberships...` - done
+- **Banner:** A large "Find Your Next Read" heading with a `Browse Now` button linking to the All Books page. - [done]
+- **Marquee:** A scrolling line of text such as `New Arrivals: [Book Name] | Special Discount on Memberships...` - [done]
 - **Featured Books:** Show the top 4 books fetched from the server or local JSON data. Each card must include a `View Details` button.
-- Add **two additional sections** based on your own ideas. - done
+- Add **two additional sections** based on your own ideas. - [done]
 
-### 4. Authentication - done
+### 4. Authentication - [done]
 
 #### User Login - done
 
-Create a login page with: - done
+Create a login page with: - [done]
 
 - A title
 - A form containing:
@@ -87,11 +87,11 @@ Behavior:
 
 Additional options:
 
-- A link to the Register page. - done
-- A Google social login button. - done
-- After successful Google login, navigate the user to the Home page. - done
+- A link to the Register page. - [done]
+- A Google social login button. - [done]
+- After successful Google login, navigate the user to the Home page. - [done]
 
-#### User Registration - done
+#### User Registration - [done]
 
 Create a registration page with:
 
@@ -103,39 +103,39 @@ Create a registration page with:
   - `Password`
   - `Register` button
 
-Behavior:
+Behavior: [done]
 
 - On successful registration, navigate the user to the Login page. - done
 - On failure, show an error using a toast or an inline form message. - done
 
-Additional options:
+Additional options: - [done]
 
-- A link to the Login page.
-- A Google social login button.
-- After successful Google login, navigate the user to the Home page. - done
+- A link to the Login page. - [done]
+- A Google social login button. - [done]
+- After successful Google login, navigate the user to the Home page. -[done]
 
 > Do not implement email verification or a forgot-password feature for this assignment. You may add them later if needed. - ok
 
-### 5. All Books Page - done
+### 5. All Books Page - [done]
 
 - A large search input at the top to search books by title.
-- Book cards displaying: - done
+- Book cards displaying: - [done]
   - Book image
   - Book title
   - A `Details` button linking to the specific book details page
 
-### 6. Single Book Details Page (Private Route) - done
+### 6. Single Book Details Page (Private Route) - [done]
 
-- **Access:** Only logged-in users can view this page.
-- **Layout:** Large book cover on the left, text and details on the right.
-- **Info to show:**
+- **Access:** Only logged-in users can view this page. [done]
+- **Layout:** Large book cover on the left, text and details on the right. [done]
+- **Info to show:** [done]
   - Title
   - Author
   - Description
   - Available quantity, such as `5 copies left`
 - **Action Button:**
   - `Borrow This Book`
-  - If the user is logged out, redirect to the Login page.
+  - If the user is logged out, redirect to the Login page. [done]
   - Show a confirmation toast after the borrow action.
 
 ### 7. My Profile (Private Route) - done

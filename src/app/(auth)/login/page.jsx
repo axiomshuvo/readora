@@ -13,8 +13,8 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { FiEye, FiEyeOff, FiLock, FiMail } from "react-icons/fi";
@@ -23,7 +23,14 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { signInWithGoogle } = useAuth();
+
+  useEffect(() => {
+    if (searchParams.get("reason") === "auth_required") {
+      toast.error("Please sign in to access that page.");
+    }
+  }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();

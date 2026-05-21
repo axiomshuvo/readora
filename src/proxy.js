@@ -10,7 +10,9 @@ export async function proxy(request) {
     return NextResponse.next();
   }
 
-  return NextResponse.redirect(new URL("/login", request.url));
+  return NextResponse.redirect(
+    new URL("/login?reason=auth_required", request.url),
+  );
 }
 
 export const config = {

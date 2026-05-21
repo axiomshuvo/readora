@@ -146,53 +146,54 @@ export default async function SingleBookDetails({ params }) {
                   </span>
                 ))}
               </div>
+
+              {/* Description */}
+              {book.description && (
+                <p className="max-w-xl text-sm leading-7 text-white/70">
+                  {book.description}
+                </p>
+              )}
+
+              {/* Availability */}
+              <div className="w-full max-w-xs mx-auto sm:mx-0">
+                <div className="mb-2 flex items-center justify-between text-xs">
+                  <span className="font-medium text-white/50">
+                    Availability
+                  </span>
+                  <span className="font-semibold text-[#6db87a]">
+                    {book.available_quantity}/{book.total_quantity} Copies Left
+                  </span>
+                </div>
+                <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
+                  <div
+                    className="h-full rounded-full bg-[#314f36] transition-all"
+                    style={{ width: `${availabilityPct}%` }}
+                  />
+                </div>
+              </div>
+
+              {/* Borrow button */}
+              <div className="flex justify-center sm:justify-start">
+                <button
+                  disabled={book.available_quantity === 0}
+                  className={`flex items-center gap-2 rounded-xl px-8 py-3 text-sm font-semibold transition ${
+                    book.available_quantity > 0
+                      ? "cursor-pointer bg-[#08440d] text-white shadow-[0_4px_20px_rgba(30,53,36,0.5)] hover:bg-[#263f2c] hover:shadow-[0_6px_24px_rgba(30,53,36,0.6)] active:scale-95"
+                      : "cursor-not-allowed bg-white/10 text-white/40"
+                  }`}
+                >
+                  {book.available_quantity > 0 ? (
+                    <>
+                      Borrow This Book
+                      <FiChevronRight className="h-4 w-4" />
+                    </>
+                  ) : (
+                    "Currently Unavailable"
+                  )}
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* ════════════════════════════════════
-          ACTION STRIP
-      ════════════════════════════════════ */}
-      <div className="border-b border-white/10 bg-[#1a1208]">
-        <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-4 px-4 py-6 sm:flex-row sm:items-center sm:gap-6 sm:px-6 lg:px-8">
-          {/* Availability */}
-          <div className="w-full sm:w-72">
-            <div className="mb-2 flex items-center justify-between text-xs">
-              <span className="font-medium text-white/50">Availability</span>
-              <span className="font-semibold text-[#6db87a]">
-                {book.available_quantity}/{book.total_quantity} copies free
-              </span>
-            </div>
-            <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
-              <div
-                className="h-full rounded-full bg-[#314f36] transition-all"
-                style={{ width: `${availabilityPct}%` }}
-              />
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="hidden h-10 w-px shrink-0 bg-white/10 sm:block" />
-
-          {/* Borrow button */}
-          <button
-            disabled={book.available_quantity === 0}
-            className={`flex w-full items-center justify-center gap-2 rounded-xl px-10 py-3.5 text-sm font-semibold transition sm:w-auto ${
-              book.available_quantity > 0
-                ? "bg-[#08440d] text-white cursor-pointer shadow-[0_4px_20px_rgba(30,53,36,0.5)] hover:bg-[#263f2c] hover:shadow-[0_6px_24px_rgba(30,53,36,0.6)] active:scale-95"
-                : "cursor-not-allowed bg-[#e8e0d4] text-[#a89e92]"
-            }`}
-          >
-            {book.available_quantity > 0 ? (
-              <>
-                Borrow This Book
-                <FiChevronRight className="h-4 w-4" />
-              </>
-            ) : (
-              "Currently Unavailable"
-            )}
-          </button>
         </div>
       </div>
 

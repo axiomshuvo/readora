@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { FiBookmark, FiGrid, FiSearch } from "react-icons/fi";
 
@@ -45,22 +46,26 @@ export default function Browse() {
 
       {/* Right actions */}
       <div className="flex shrink-0 items-center px-2 py-2">
-        <button className="flex items-center gap-3 rounded-xl px-4 py-2 transition-colors hover:bg-[#f5f0e8]">
-          <FiGrid className="h-5 w-5 shrink-0 text-[#314f36]" />
-          <div className="text-left">
-            <p className="text-sm font-semibold text-[#1f1a14]">Browse</p>
-            <p className="text-xs text-[#6c6459]">Categories</p>
-          </div>
-        </button>
-        <button className="flex items-center gap-3 rounded-xl px-4 py-2 transition-colors hover:bg-[#f5f0e8]">
-          <FiBookmark className="h-5 w-5 shrink-0 text-[#314f36]" />
-          <div className="text-left">
-            <p className="text-sm font-semibold text-[#1f1a14]">
-              My Borrowings
-            </p>
-            <p className="text-xs text-[#6c6459]">View Status</p>
-          </div>
-        </button>
+        <Link href="/categories">
+          <button className="flex cursor-pointer  items-center gap-3 rounded-xl px-4 py-2 transition-colors hover:bg-[#f5f0e8]">
+            <FiGrid className="h-5 w-5 shrink-0 text-[#314f36]" />
+            <div className="text-left">
+              <p className="text-sm font-semibold text-[#1f1a14]">Browse</p>
+              <p className="text-xs text-[#6c6459]">Categories</p>
+            </div>
+          </button>
+        </Link>
+        <Link href="/#my-borrowings">
+          <button className="flex cursor-pointer items-center gap-3 rounded-xl px-4 py-2 transition-colors hover:bg-[#f5f0e8]">
+            <FiBookmark className="h-5 w-5 shrink-0 text-[#314f36]" />
+            <div className="text-left">
+              <p className="text-sm font-semibold text-[#1f1a14]">
+                My Borrowings
+              </p>
+              <p className="text-xs text-[#6c6459]">View Status</p>
+            </div>
+          </button>
+        </Link>
       </div>
     </div>
   );
